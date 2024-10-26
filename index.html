@@ -1,14 +1,31 @@
 <html>
 <head>
-  <title>mirai.host</title>
-  <meta charset="UTF-8">
-  <meta name="description" content=":*">
-  <meta http-equiv="refresh" content="3;url=https://only-fans.uk/mirai" />
-  <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/avatars/349017103572926465/1a2fa81024a46ece161941bf9d12c6cd?size=16">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        #json-result {
+            width: 600px;
+            max-width: 100%;
+            white-space: pre-wrap;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-  <img src="https://i.imgur.com/3BVx67n.gif" width="150"/>
-  <br>
-  <pre>ano tinitignan mo dyan</pre>
+    <div id="json-result"></div>
+    <script>
+        fetch('http://ip-api.com/json')
+            .then(response => response.json())
+            .then(data => {
+                const formattedJson = JSON.stringify(data, null, 2);
+                document.getElementById('json-result').textContent = formattedJson;
+            })
+            .catch(error => console.error('Error fetching IP information:', error));
+    </script>
 </body>
 </html>
