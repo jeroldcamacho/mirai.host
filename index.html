@@ -3,26 +3,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <style>
-        #json-result {
+    <style>        
+	#json-result {
             width: 600px;
             max-width: 100%;
-            white-space: pre-wrap;
-            background-color: #f4f4f4;
-            padding: 10px;
-            border-radius: 5px;
-            font-family: monospace;
-            color: #333;
-        }
+	    white-space: pre-wrap; 
+	    background-color: #f4f4f4; 
+	    padding: 10px; 
+	    border-radius: 5px;
+	    font-family: monospace;
+	    color: #333;        
+	}
     </style>
 </head>
 <body>
     <div id="json-result"></div>
     <script>
-        fetch('http://ip-api.com/json')
+        fetch('https://ipapi.co/json/')
             .then(response => response.json())
             .then(data => {
-                const formattedJson = JSON.stringify(data, null, 2);
+		const formattedJson = JSON.stringify(data, null, 2);
                 document.getElementById('json-result').textContent = formattedJson;
             })
             .catch(error => console.error('Error fetching IP information:', error));
