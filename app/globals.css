@@ -12,6 +12,19 @@ nextjs-portal,
 
 /* ── Color tokens ─────────────────────────────────────────────── */
 :root {
+  /* dark mode (default — no JS needed) */
+  --color-bg:        10 10 10;
+  --color-surface:   20 20 20;
+  --color-card:      24 24 24;
+  --color-border:    40 40 40;
+  --color-border-hi: 64 64 64;
+  --color-accent:    255 255 255;
+  --color-text:      255 255 255;
+  --color-muted:     154 154 154;
+  --color-dim:       85 85 85;
+}
+
+.light {
   /* light mode */
   --color-bg:        255 255 255;
   --color-surface:   245 245 245;
@@ -22,19 +35,6 @@ nextjs-portal,
   --color-text:      0 0 0;
   --color-muted:     85 85 85;
   --color-dim:       160 160 160;
-}
-
-.dark {
-  /* dark mode */
-  --color-bg:        10 10 10;
-  --color-surface:   20 20 20;
-  --color-card:      24 24 24;
-  --color-border:    40 40 40;
-  --color-border-hi: 64 64 64;
-  --color-accent:    255 255 255;
-  --color-text:      255 255 255;
-  --color-muted:     154 154 154;
-  --color-dim:       85 85 85;
 }
 
 @layer base {

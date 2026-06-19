@@ -6,15 +6,15 @@ export default function ThemeToggle() {
   const [dark, setDark] = useState(true)
 
   useEffect(() => {
-    // Read the class that was applied by the inline script in layout
-    const isDark = document.documentElement.classList.contains('dark')
-    setDark(isDark)
+    // If .light class is present, we're in light mode
+    const isLight = document.documentElement.classList.contains('light')
+    setDark(!isLight)
   }, [])
 
   function toggle() {
     const next = !dark
     setDark(next)
-    document.documentElement.classList.toggle('dark', next)
+    document.documentElement.classList.toggle('light', !next)
     localStorage.setItem('theme', next ? 'dark' : 'light')
   }
 
