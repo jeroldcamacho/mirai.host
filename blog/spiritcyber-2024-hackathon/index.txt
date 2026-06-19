@@ -1,0 +1,65 @@
+1:"$Sreact.fragment"
+2:I[39756,["/_next/static/chunks/0x2ci9uuoqax9.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+3:I[37457,["/_next/static/chunks/0x2ci9uuoqax9.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+4:I[2865,["/_next/static/chunks/0x2ci9uuoqax9.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+6:I[97367,["/_next/static/chunks/0x2ci9uuoqax9.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+a:I[97367,["/_next/static/chunks/0x2ci9uuoqax9.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"ViewportBoundary"]
+c:I[97367,["/_next/static/chunks/0x2ci9uuoqax9.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"MetadataBoundary"]
+e:I[68027,["/_next/static/chunks/0x2ci9uuoqax9.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default",1]
+:HL["/_next/static/chunks/0r41mlf5vzjgt.css","style"]
+:HL["/_next/static/media/0c89a48fa5027cee-s.p.0rd3rjvnnhw7n.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/70bc3e132a0a741e-s.p.1409xf.ylxg8g.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css","style"]
+0:{"P":null,"c":["","blog","spiritcyber-2024-hackathon",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","spiritcyber-2024-hackathon","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0r41mlf5vzjgt.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0x2ci9uuoqax9.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0d3shmwh5_nmn.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.classList.toggle('dark',t==='dark');})()"}}],["$","link",null,{"rel":"stylesheet","href":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"}]]}],["$","body",null,{"className":"space_grotesk_b46c4ed1-module__H04ARG__variable jetbrains_mono_5485fcae-module__74MbIa__variable font-display antialiased","children":[["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$L4",null,{}]]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L5",[["$","script","script-0",{"src":"/_next/static/chunks/01-v_ud90wcfw.js","async":true,"nonce":"$undefined"}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],{},null,false,null]},null,false,"$@9"]},null,false,"$@9"]},null,false,null],["$","$1","h",{"children":[null,["$","$La",null,{"children":"$Lb"}],["$","div",null,{"hidden":true,"children":["$","$Lc",null,{"children":["$","$7",null,{"name":"Next.Metadata","children":"$Ld"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$e",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0r41mlf5vzjgt.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"6yy41LhJBaYJgdZa1b82k"}
+f:[]
+9:"$Wf"
+10:I[28393,["/_next/static/chunks/0x2ci9uuoqax9.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/01-v_ud90wcfw.js"],"default"]
+11:I[22016,["/_next/static/chunks/0x2ci9uuoqax9.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/01-v_ud90wcfw.js"],""]
+12:I[33341,["/_next/static/chunks/0x2ci9uuoqax9.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/01-v_ud90wcfw.js"],"default"]
+13:T11d7,<h1>SPIRITCYBER Hackathon?</h1>
+<p>SPIRITCYBER is a hackathon that started in 2022 and aims to discover new IoT attack techniques through crowdsourced wisdom from the broader cybersecurity community. It will take place during the Singapore International Cyber Week (SICW).</p>
+<p>The theme for this year's SPIRITCYBER-24 is 'Cybersecure Urban Living.' The event is organized by SPIRIT, a Singapore government-funded R&#x26;D center located at Nanyang Technological University (NTU).<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref aria-describedby="footnote-label">1</a></sup></p>
+<h1>SPIRITCYBER-2024</h1>
+<p>We registered for the SPIRITCYBER-24 Hackathon and were fortunate to be selected to participate in the online elimination round, which will last only 30 days.</p>
+<p>Below, I have listed the different target smart device categories:</p>
+<ul>
+<li><strong>Smart City</strong>: Connected Lamp Posts</li>
+<li><strong>Smart Buildings</strong>: AMR, Lift, Auto Door</li>
+<li><strong>Other Smart Home devices</strong></li>
+</ul>
+<p>You can check the actual photos of the target smart devices <a href="https://www.facebook.com/SICWSG/posts/pfbid023mApv1LLhyWdTVGEsJMchSiHp4ReNfLBE6sG8iUoVUXxdeaxfwp6zgP3Z6hddKz3l">here</a>.</p>
+<h2>Elimination Round</h2>
+<p>My teammates, Jay Turla and Japz Divino, and I managed to identify several vulnerabilities ranging from low to critical severity, including XSS, Account Takeover, RCE, Modbus attacks, and OPC UA attacks.</p>
+<p>We qualified for the Finals of SPIRITCYBER-24, placing 3rd in the Elimination Round with a score of 5,700, earning a prize of $10,500 and a bonus of $2,000 for securing 3rd place. The final round will be held at the GovWare event during the Singapore International Cyber Week in Singapore from October 15–17.</p>
+<!-- ![](/img/spiritcyber-2024-hackathon/img1.png)  -->
+<img src="/img/spiritcyber-2024-hackathon/img1.png" alt="foo" class="img-lg">
+<h2>Final Round</h2>
+<p>For the final round, stricter rules were set, and each team was given limited time to test each of the smart device categories.</p>
+<p>We had a hard time testing with the limited time, but we still managed to place 3rd in the final round, earning a prize of $200 for the single bug we reported on the PLC controller.</p>
+<!-- ![](/img/spiritcyber-2024-hackathon/img3.jpg)  -->
+<img src="/img/spiritcyber-2024-hackathon/img3.jpg" alt="foo" class="img-lg">
+<p>Since the score from the final round is added to the score from the elimination round, our overall score placed us 3rd in the SPIRITCYBER-24 Hackathon competition, earning a total prize of $14,700.</p>
+<!-- ![](/img/spiritcyber-2024-hackathon/img2.png) -->
+<img src="/img/spiritcyber-2024-hackathon/img2.png" alt="foo" class="img-lg">
+<h1>Exploits Demo</h1>
+<p>Here are some of the exploits we demoed in the final round of the hackathon (which won't be accepted since we already reported them in the elimination round).</p>
+<p><strong>Controlling Lift / Elevator PLC</strong></p>
+<p><a href="https://www.facebook.com/watch/?v=1617379705799965"><img src="/img/spiritcyber-2024-hackathon/img4.png" alt="Controlling Lift / Elevator PLC"></a></p>
+<p><strong>Timing Attack via Modbus that stops the Autonomous Mobile Robot</strong></p>
+<p><a href="https://www.facebook.com/chvdotph/videos/533934589360355/"><img src="/img/spiritcyber-2024-hackathon/img5.png" alt="Timing Attack via Modbus that stops the Automous Mobile Robot"></a></p>
+<h1>Conclusion</h1>
+<p>It was fun meeting researchers, bug hunters, and hackers from different countries. We enjoyed the hackathon event as well as GovWare, where we got a lot of freebies, swag, and stickers from various companies showcasing their businesses and products. We also learned a lot about hacking into different IoT and OT devices. A big shoutout to the organizers from
+Cyber Security Agency of Singapore, Nanyang Technological University and the awesome guys from Starlabs!</p>
+<section data-footnotes class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p><a href="https://www.sicw.gov.sg/events/15-oct/iot-hackathon-spiritcyber-2024/">https://www.sicw.gov.sg/events/15-oct/iot-hackathon-spiritcyber-2024/</a>, <a href="https://www.sicw.gov.sg/events/19-october-2023/iot-hackathon-spiritcyber-2023/">https://www.sicw.gov.sg/events/19-october-2023/iot-hackathon-spiritcyber-2023/</a> <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>5:[["$","$L10",null,{}],["$","main",null,{"className":"px-6 md:px-10 lg:px-16 pt-28 pb-24 max-w-[72rem] mx-auto","children":[["$","$L11",null,{"href":"/blog","className":"font-mono text-xs text-muted hover:text-accent transition-colors inline-flex items-center gap-1.5 mb-10 group","children":[["$","span",null,{"className":"group-hover:-translate-x-0.5 transition-transform","children":"←"}],"back to blog"]}],["$","header",null,{"className":"mb-10 pb-8 border-b border-border","children":[false,["$","h1",null,{"className":"font-display font-bold text-[1.75rem] md:text-[2rem] text-text leading-tight mb-4","children":"Breaking into IoT and OT devices at the SPIRITCYBER-24 Hackathon"}],["$","div",null,{"className":"flex flex-wrap items-center gap-4","children":[["$","span",null,{"className":"font-mono text-[11px] text-dim","children":"February 3, 2025"}],false]}]]}],["$","$L12",null,{"items":[{"level":1,"text":"SPIRITCYBER Hackathon?","id":"spiritcyber-hackathon"},{"level":1,"text":"SPIRITCYBER-2024","id":"spiritcyber-2024"},{"level":2,"text":"Elimination Round","id":"elimination-round"},{"level":2,"text":"Final Round","id":"final-round"},{"level":1,"text":"Exploits Demo","id":"exploits-demo"},{"level":1,"text":"Conclusion","id":"conclusion"},{"level":1,"text":"Footnotes","id":"footnote-label"}],"defaultOpen":false}],["$","article",null,{"className":"prose","dangerouslySetInnerHTML":{"__html":"$13"}}],"$L14"]}]]
+14:["$","div",null,{"className":"mt-14 pt-8 border-t border-border flex items-center justify-between","children":[["$","$L11",null,{"href":"/blog","className":"font-mono text-xs text-muted hover:text-accent transition-colors","children":"← all posts"}],["$","$L11",null,{"href":"/","className":"font-mono text-xs text-muted hover:text-accent transition-colors","children":"~/mirai"}]]}]
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+15:I[27201,["/_next/static/chunks/0x2ci9uuoqax9.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"IconMark"]
+8:null
+d:[["$","title","0",{"children":"Breaking into IoT and OT devices at the SPIRITCYBER-24 Hackathon | mirai.host"}],["$","meta","1",{"name":"description","content":"We competed in the SPIRITCYBER-24 Hackathon, securing 3rd place overall with a total prize of $14,700 after identifying critical vulnerabilities in smart city and industrial IoT devices."}],["$","link","2",{"rel":"icon","href":"/favicon.svg"}],["$","$L15","3",{}]]
